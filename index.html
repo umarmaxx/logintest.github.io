@@ -13,14 +13,19 @@
     </form>
 
     <script>
-        document.getElementById('loginForm').addEventListener('submit', function(event) {
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
     event.preventDefault();
     var username = document.getElementById('username').value;
     var password = document.getElementById('password').value;
 
+    console.log('Submitting login request...');
+    console.log('Username:', username);
+    console.log('Password:', password);
+
     fetch('https://script.google.com/macros/s/AKfycbyedzmjSltyEpqpKZquJMZp0kfhtYEUfxqxe-9LHQGcAtXMSQssQX9Bs98EfwKVboQ16Q/exec?username=' + username + '&password=' + password)
     .then(response => response.json())
     .then(data => {
+        console.log('Response:', data);
         if (data.success) {
             alert('Login successful');
             // Redirect or perform other actions upon successful login
@@ -30,7 +35,6 @@
     })
     .catch(error => console.error('Error:', error));
 });
-
     </script>
 </body>
 </html>
