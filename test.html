@@ -17,12 +17,13 @@
             var username = document.getElementById('username').value;
             var password = document.getElementById('password').value;
 
-            fetch('https://script.google.com/macros/s/AKfycbzIzokieroXJiYnBZbpqjIeniXvRbNK9TrbaQwMg8JTg7ZPGtauGEBlNIwh-f1VPV-N/exec?username=' + username + '&password=' + password)
+            fetch('https://script.google.com/macros/s/AKfycbxKNtHzNdCcdjkFPUjfjBIzRnenuVojzUZ1xyYpdOWYBamyg5dofYoJvwzFF6StrTrY/exec?username=' + username + '&password=' + password)
             .then(response => response.json())
             .then(data => {
+                console.log('Response:', data);
                 if (data.success) {
-                    // Redirect to admin.html upon successful login
-                    window.location.href = data.redirectUrl;
+                    alert('Login successful');
+                    // Redirect or perform any other actions upon successful login
                 } else {
                     alert('Invalid username or password. Please try again.');
                 }
