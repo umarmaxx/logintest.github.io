@@ -17,17 +17,12 @@
             var username = document.getElementById('username').value;
             var password = document.getElementById('password').value;
 
-            console.log('Submitting login request...');
-            console.log('Username:', username);
-            console.log('Password:', password);
-
             fetch('https://script.google.com/macros/s/AKfycbzIzokieroXJiYnBZbpqjIeniXvRbNK9TrbaQwMg8JTg7ZPGtauGEBlNIwh-f1VPV-N/exec?username=' + username + '&password=' + password)
             .then(response => response.json())
             .then(data => {
-                console.log('Response:', data);
                 if (data.success) {
-                    // Redirect to admin.html in Google Apps Script environment
-                    window.location.href = 'https://script.google.com/macros/s/AKfycbzIzokieroXJiYnBZbpqjIeniXvRbNK9TrbaQwMg8JTg7ZPGtauGEBlNIwh-f1VPV-N/exec';
+                    // Redirect to admin.html upon successful login
+                    window.location.href = data.redirectUrl;
                 } else {
                     alert('Invalid username or password. Please try again.');
                 }
