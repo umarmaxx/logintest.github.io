@@ -18,17 +18,19 @@
             var password = document.getElementById('password').value;
 
            fetch('https://script.google.com/macros/s/AKfycbxKNtHzNdCcdjkFPUjfjBIzRnenuVojzUZ1xyYpdOWYBamyg5dofYoJvwzFF6StrTrY/exec?username=' + username + '&password=' + password)
-  .then(response => response.json())
-  .then(data => {
-    console.log('Response:', data);
-    if (data.success) {
-      alert('Login successful');
-      window.location.href = data.redirectUrl; // Redirect to admin.html
-    } else {
-      alert('Invalid username or password. Please try again.');
-    }
-  })
-  .catch(error => console.error('Error:', error));
+              .then(response => response.json())
+              .then(data => {
+                console.log('Response:', data);
+                if (data.success) {
+                  alert('Login successful');
+                  console.log('Redirect URL:', data.redirectUrl); // Log the redirectUrl
+                  window.location.href = data.redirectUrl; // Redirect to Google Apps Script deployment URL for admin.html
+                } else {
+                  alert('Invalid username or password. Please try again.');
+                }
+              })
+          .catch(error => console.error('Error:', error));
+
         });
     </script>
 </body>
