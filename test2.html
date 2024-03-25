@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <h1>Login</h1>
+    <form id="loginForm" action="https://script.google.com/macros/s/AKfycbzRmvJaiN1XWgxknIE8xlGrorxrbOVF7AVjHR15kppU4r-1Vn1hN73WOdbV9tvLERgX/exec" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        <button type="submit">Login</button>
+    </form>
+
+    <script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        var formData = new FormData(this); // Get form data
+        var xhr = new XMLHttpRequest(); // Create AJAX request
+
+        xhr.open('POST', 'https://script.google.com/macros/s/AKfycbzRmvJaiN1XWgxknIE8xlGrorxrbOVF7AVjHR15kppU4r-1Vn1hN73WOdbV9tvLERgX/exec'); // Replace with your Google Apps Script URL
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    var response = xhr.responseText;
+                    if (response.includes('Authentication successful')) {
+                        window.location.href = 'https://script.google.com/macros/s/AKfycbzRmvJaiN1XWgxknIE8xlGrorxrbOVF7AVjHR15kppU4r-1Vn1hN73WOdbV9tvLERgX/exec'; // Redirect to admin.html in Google Apps Script
+                    } else {
+                        alert('Authentication failed. Please try again.');
+                    }
+                } else {
+                    alert('Error occurred while processing the request.');
+                }
+            }
+        };
+        xhr.send(formData); // Send form data to Google Apps Script
+    });
+</script>
+
+</body>
+</html>
