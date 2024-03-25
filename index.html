@@ -14,22 +14,23 @@
 
     <script>
         document.getElementById('loginForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            var username = document.getElementById('username').value;
-            var password = document.getElementById('password').value;
-            
-            fetch('https://script.google.com/macros/s/your_web_app_id/exec?username=' + username + '&password=' + password)
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    alert('Login successful');
-                    // Redirect or perform other actions upon successful login
-                } else {
-                    alert('Login failed');
-                }
-            })
-            .catch(error => console.error('Error:', error));
-        });
+    event.preventDefault();
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+
+    fetch('https://script.google.com/a/macros/maxx.my/s/AKfycbyIssTgjaDEkj4XozWOmEQDLlCdQRd8uNGh5Iw74VaDpe73u4vljbDqdeCk_KJgbinMpA/exec?username=' + username + '&password=' + password)
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Login successful');
+            // Redirect or perform other actions upon successful login
+        } else {
+            alert('Login failed');
+        }
+    })
+    .catch(error => console.error('Error:', error));
+});
+
     </script>
 </body>
 </html>
