@@ -2,7 +2,6 @@
 <html>
 <head>
     <title>Login Page</title>
-    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h1>Login</h1>
@@ -22,7 +21,7 @@
     console.log('Username:', username);
     console.log('Password:', password);
 
-    fetch('https://script.google.com/macros/s/AKfycbyedzmjSltyEpqpKZquJMZp0kfhtYEUfxqxe-9LHQGcAtXMSQssQX9Bs98EfwKVboQ16Q/exec?username=' + username + '&password=' + password)
+    fetch('https://script.google.com/macros/s/AKfycbytUoqHoh5vfTxcBUQha-D9VJ763H7w8Vaf7AhLavkY-3DAojjYJdnPUR5Xg39Wt8AlCA/exec?username=' + username + '&password=' + password)
     .then(response => response.json())
     .then(data => {
         console.log('Response:', data);
