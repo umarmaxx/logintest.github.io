@@ -28,7 +28,7 @@
             e.preventDefault();
             const username = document.getElementById('username').value;
             const password = await hashPassword(document.getElementById('password').value);
-            const response = await fetch(`https://script.google.com/macros/s/AKfycby9bZ_8Baa4COpkY8EDuuMJ42oE4Y-5m9oTTkhUZ1Lg6u-WW3s7C70EXqMQP61UpnuF4w/exec?username=${username}&password=${password}`);
+            const response = await fetch(`https://script.google.com/macros/s/AKfycbwL8raZ5P9a21ILq-xAloKZ2WAIZCKW_XEblj0eblLtFlZlE8meSeB7RSTSVcZUrCegiw/exec?username=${username}&password=${password}`);
             const data = await response.json();
             if (data.success) {
                 localStorage.setItem('token', data.token);
