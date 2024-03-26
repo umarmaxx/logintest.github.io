@@ -12,26 +12,28 @@
     </form>
 
     <script>
-  document.getElementById('loginForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    var username = document.getElementById('username').value;
-    var password = document.getElementById('password').value;
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
 
-    fetch('https://script.google.com/macros/s/AKfycbxfyixqXqK_cSVl6ZgyKXIxoluSjlUtkZsnSAk26GLc6dTTtsKuCNC7C8j4UH4khc0k/exec?username=' + username + '&password=' + password)
-      .then(response => response.json())
-      .then(data => {
-        console.log('Response:', data);
-        if (data.success) {
-          alert('Login successful');
-          console.log('Redirect URL:', data.redirectUrl); // Log the redirectUrl
-          window.location.href = data.redirectUrl; // Redirect to Google Apps Script deployment URL for admin.html
-        } else {
-          alert('Invalid username or password. Please try again.');
-        }
-      })
-      .catch(error => console.error('Error:', error));
-  });
-</script>
-
+            fetch('https://script.google.com/macros/s/AKfycbxfyixqXqK_cSVl6ZgyKXIxoluSjlUtkZsnSAk26GLc6dTTtsKuCNC7C8j4UH4khc0k/exec?username=' + username + '&password=' + password, {
+                method: 'GET',
+                mode: 'cors'
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Response:', data);
+                if (data.success) {
+                    alert('Login successful');
+                    console.log('Redirect URL:', data.redirectUrl); // Log the redirectUrl
+                    window.location.href = data.redirectUrl; // Redirect to Google Apps Script deployment URL for admin.html
+                } else {
+                    alert('Invalid username or password. Please try again.');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
 </body>
 </html>
