@@ -17,7 +17,7 @@
     var username = document.getElementById('username').value;
     var password = document.getElementById('password').value;
 
-    fetch('https://script.google.com/macros/s/AKfycbyAQiTb_GqftQL6EAltKUBkRsysiinDPRJv1lk1DlKWqbGoyw6QijVBy5G2n4H5CJev/exec?username=' + username + '&password=' + password)
+    fetch('https://script.google.com/macros/s/AKfycbxfyixqXqK_cSVl6ZgyKXIxoluSjlUtkZsnSAk26GLc6dTTtsKuCNC7C8j4UH4khc0k/exec?username=' + username + '&password=' + password)
       .then(response => response.json())
       .then(data => {
         console.log('Response:', data);
