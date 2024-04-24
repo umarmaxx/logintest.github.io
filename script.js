@@ -8,7 +8,7 @@ async function connectDatabase() {
     try {
         await client.connect();
         console.log('Connected to MongoDB Atlas');
-        return client.db('test').collection('your_collection_name_here');
+        return client.db('test').collection('sample data');
     } catch (error) {
         console.error('Error connecting to MongoDB Atlas', error);
     }
