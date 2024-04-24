@@ -1,7 +1,7 @@
 const MongoClient = require('mongodb').MongoClient;
 const ObjectId = require('mongodb').ObjectId;
 
-const connectionString = 'mongodb+srv://umarmaxx:<password>@raid0.uquj7u1.mongodb.net/?retryWrites=true&w=majority&appName=Raid0';
+const connectionString = 'mongodb+srv://umarmaxx:umarmaxx95@raid0.uquj7u1.mongodb.net/?retryWrites=true&w=majority&appName=Raid0';
 const client = new MongoClient(connectionString, { useNewUrlParser: true, useUnifiedTopology: true });
 
 async function connectDatabase() {
